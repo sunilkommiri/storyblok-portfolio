@@ -28,7 +28,7 @@ export async function getStaticProps() {
   const storyblokApi = getStoryblokApi();
   
   let sbParams = {
-    version: "draft", // Or "published"
+    version: "published",
   };
 
   // Fetches the story with the slug "homepage"

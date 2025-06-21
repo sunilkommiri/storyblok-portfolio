@@ -61,7 +61,7 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const { data } = await storyblokApi.get(`cdn/stories/blog/${slug}`, {
-    version: "draft",
+    version: "published",
   });
 
   return {
