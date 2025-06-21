@@ -1,19 +1,155 @@
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* General Body & Layout Styles */
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 40px;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #f7f7f7;
   color: #333;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  color: #1a202c;
+/* This targets the main div that Next.js wraps your app in for the sticky footer */
+div#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* This tells your main content to grow and push the footer down */
+main {
+  flex-grow: 1;
+  padding: 0 40px 40px 40px;
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 20px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Hero Styles */
+.hero {
   text-align: center;
+  padding: 60px 20px;
+  background-color: #eaf2f8;
+  border-radius: 8px;
   margin-bottom: 40px;
 }
 
-/* Styles for the Projects Section */
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #1a202c;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* About Me Section Styles */
+.about-section {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  align-items: center;
+  gap: 50px;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 8px;
+  margin-top: 60px;
+}
+
+.about-photo {
+  flex-shrink: 0;
+  text-align: center;
+  margin: auto;
+}
+
+.about-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px; /* Ensures text doesn't get too squished */
+}
+
+.about-text h2 {
+  margin-top: 0;
+  font-size: 2rem;
+}
+
+.about-text p {
+  line-height: 1.7;
+}
+
+/* Skills Section Styles */
+.skills-section {
+  padding: 40px 0;
+}
+
+.skills-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.skill-logo-item {
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.skill-logo-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-logo-item img {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.skill-logo-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.skill-logo-item p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+
+/* Projects Section Styles */
 .projects-container h2 {
   font-size: 2rem;
   border-bottom: 2px solid #4a90e2;
@@ -63,4 +199,13 @@ header h1 {
 
 .project-card a:hover {
     text-decoration: underline;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #eaf2f8;
+  border-top: 1px solid #ddd;
+  color: #555;
 }

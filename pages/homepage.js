@@ -9,36 +9,36 @@ export default function Home({ story }) {
   const storyblokState = useStoryblokState(story);
 
   return (
-    <div>
-      <Head>
-        <title>My Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <header>
-        <h1>My Awesome Portfolio</h1>
-      </header>
-
-      {/* This component will render the content from Storyblok */}
-      <StoryblokComponent blok={storyblokState.content} />
-    </div>
+    // The <main> tag is the wrapper for the sticky footer fix
+    <main>
+      <div>
+        <Head>
+          <title>My Portfolio</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        
+        {/* This StoryblokComponent renders all the blocks from your homepage story */}
+        <StoryblokComponent blok={storyblokState.content} />
+      </div>
+    </main>
   );
 }
 
 export async function getStaticProps() {
-  let slug = "homepage";
+  const storyblokApi = getStoryblokApi();
+  
   let sbParams = {
-    version: "draft",
+    version: "draft", // Or "published"
   };
 
-  const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  // Fetches the story with the slug "homepage"
+  let { data } = await storyblokApi.get("cdn/stories/homepage", sbParams);
 
   return {
     props: {
       story: data ? data.story : false,
-      key: data ? data.story.id : false,
+      // The key prop is removed here to fix the terminal warning
     },
-    revalidate: 3600,
+    revalidate: 3600, // Re-generates the page every hour
   };
 }
